@@ -1,6 +1,6 @@
-package io.eventuate.coordination.leadership.zookeeper;
+package io.eventuate.common.zookeeper;
 
-import io.eventuate.common.testcontainers.EventuateZookeeperContainer;
+import io.eventuate.common.zookeeper.testcontainers.EventuateZookeeperContainer;
 import io.eventuate.common.testcontainers.PropertyProvidingContainer;
 import io.eventuate.common.coordination.leadership.LeaderSelectedCallback;
 import io.eventuate.common.coordination.leadership.tests.AbstractLeadershipTest;

@@ -1,4 +1,4 @@
-package io.eventuate.coordination.leadership.zookeeper;
+package io.eventuate.common.zookeeper;
 
 import io.eventuate.common.coordination.leadership.EventuateLeaderSelector;
 import io.eventuate.common.coordination.leadership.LeaderSelectedCallback;

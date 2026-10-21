@@ -1,5 +1,8 @@
-package io.eventuate.common.testcontainers;
+package io.eventuate.common.zookeeper.testcontainers;
 
+import io.eventuate.common.testcontainers.ContainerUtil;
+import io.eventuate.common.testcontainers.EventuateGenericContainer;
+import io.eventuate.common.testcontainers.PropertyProvidingContainer;
 import org.jspecify.annotations.NonNull;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.ImageFromDockerfile;
@@ -43,7 +46,8 @@ public class EventuateZookeeperContainer extends EventuateGenericContainer<Event
 
     @Override
     public void registerProperties(BiConsumer<String, Supplier<Object>> registry) {
-        ContainerUtil.registerPortProperty(this, registry, "eventuatelocal.zookeeper.connection.string");
+        registry.accept("eventuatelocal.zookeeper.connection.string",
+                () -> "localhost:%s".formatted(getFirstMappedPort()));
     }
 
     public String getZookeeperConnect() {

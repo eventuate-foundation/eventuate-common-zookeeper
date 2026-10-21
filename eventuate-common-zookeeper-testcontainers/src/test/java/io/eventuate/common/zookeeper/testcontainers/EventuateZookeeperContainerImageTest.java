@@ -1,4 +1,4 @@
-package io.eventuate.common.testcontainers;
+package io.eventuate.common.zookeeper.testcontainers;
 
 import org.junit.jupiter.api.Test;
 

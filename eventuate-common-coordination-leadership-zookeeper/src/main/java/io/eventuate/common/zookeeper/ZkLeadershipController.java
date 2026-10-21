@@ -1,4 +1,4 @@
-package io.eventuate.coordination.leadership.zookeeper;
+package io.eventuate.common.zookeeper;
 
 import io.eventuate.common.coordination.leadership.LeadershipController;
 import org.slf4j.Logger;
