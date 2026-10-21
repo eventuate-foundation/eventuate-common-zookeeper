@@ -1,7 +1,7 @@
 package io.eventuate.coordination.leadership.zookeeper;
 
-import io.eventuate.coordination.leadership.EventuateLeaderSelector;
-import io.eventuate.coordination.leadership.LeaderSelectedCallback;
+import io.eventuate.common.coordination.leadership.EventuateLeaderSelector;
+import io.eventuate.common.coordination.leadership.LeaderSelectedCallback;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.leader.CancelLeadershipException;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;

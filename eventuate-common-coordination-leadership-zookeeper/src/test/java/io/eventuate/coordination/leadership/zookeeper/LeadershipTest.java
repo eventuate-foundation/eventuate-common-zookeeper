@@ -2,8 +2,8 @@ package io.eventuate.coordination.leadership.zookeeper;
 
 import io.eventuate.common.testcontainers.EventuateZookeeperContainer;
 import io.eventuate.common.testcontainers.PropertyProvidingContainer;
-import io.eventuate.coordination.leadership.LeaderSelectedCallback;
-import io.eventuate.coordination.leadership.tests.AbstractLeadershipTest;
+import io.eventuate.common.coordination.leadership.LeaderSelectedCallback;
+import io.eventuate.common.coordination.leadership.tests.AbstractLeadershipTest;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
