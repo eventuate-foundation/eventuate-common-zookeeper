@@ -1,6 +1,49 @@
-= An Eventuate project
+= Eventuate Common ZooKeeper
 
 image::https://eventuate.io/i/logo.gif[]
 
 This project is part of http://eventuate.io[Eventuate], which is a microservices collaboration platform.
 
+It contains the https://zookeeper.apache.org/[ZooKeeper] implementation of the leadership API in https://github.com/eventuate-foundation/eventuate-common-coordination-leadership[eventuate-common-coordination-leadership], the `eventuateio/eventuate-zookeeper` image, and the https://testcontainers.com/[Testcontainers] container that runs it.
+
+It publishes these artifacts under the group `io.eventuate.common.zookeeper`:
+
+|===
+| Artifact | Package | Contents
+
+| `eventuate-common-coordination-leadership-zookeeper`
+| `io.eventuate.common.zookeeper`
+| `ZkLeaderSelector` and `ZkLeadershipController`, which use https://curator.apache.org/[Apache Curator]
+
+| `eventuate-common-zookeeper-testcontainers`
+| `io.eventuate.common.zookeeper.testcontainers`
+| `EventuateZookeeperContainer`, which runs the `eventuateio/eventuate-zookeeper` image with the tag of this project's version
+
+| `eventuate-common-zookeeper-bom`
+|
+| The BOM for these artifacts
+|===
+
+It also builds the `eventuateio/eventuate-zookeeper` image, for `amd64` and `arm64`, from `zookeeper/`.
+
+Its version is set in a consumer's `gradle.properties` with the property `eventuateCommonZookeeperVersion`, and the image's tag with `eventuateCommonZookeeperImageVersion`.
+Docker Compose files use `EVENTUATE_COMMON_ZOOKEEPER_VERSION` for the tag of `eventuateio/eventuate-zookeeper`.
+
+== Migrating from eventuate-common
+
+These were previously part of https://github.com/eventuate-foundation/eventuate-common[eventuate-common], which published them under the group `io.eventuate.common`:
+
+* `eventuate-common-coordination-leadership-zookeeper` was in the package `io.eventuate.coordination.leadership.zookeeper`.
+It declares the capability of its old coordinates, so a Gradle build that gets both the old and the new artifact fails with a capability conflict.
+* `EventuateZookeeperContainer` was in `eventuate-common-testcontainers`, in the package `io.eventuate.common.testcontainers`.
+A consumer that uses it depends on `eventuate-common-zookeeper-testcontainers`.
+
+The https://github.com/cer/openrewrite-recipes/blob/master/eventuate-common-split/README.adoc[migration guide] lists the new groups, version properties and packages, and describes the OpenRewrite recipe that migrates a consumer.
+
+== Building
+
+----
+./build-and-test-all.sh
+----
+
+This builds the `eventuateio/eventuate-zookeeper` image locally, tagged with the project version, and then runs `./gradlew build`, whose tests use it.
