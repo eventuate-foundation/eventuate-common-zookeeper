@@ -1,0 +1,17 @@
+dependencies {
+    api "io.eventuate.common.testcontainers:eventuate-common-testcontainers:$eventuateCommonTestcontainersVersion"
+    api "org.testcontainers:testcontainers:$testContainersVersion"
+}
+
+
+task writeProperties(type: WriteProperties) {
+    outputFile "${project.buildDir}/generated/eventuate.common.zookeeper.version.properties"
+    property 'version', version
+}
+
+processResources.from(writeProperties)
+
+test {
+    systemProperty "eventuate.common.zookeeper.version", version
+    useJUnitPlatform()
+}

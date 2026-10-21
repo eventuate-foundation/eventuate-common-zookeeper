@@ -6,7 +6,7 @@ dependencies {
     testImplementation "io.eventuate.common.coordination.leadership:eventuate-common-coordination-leadership-tests:$eventuateCommonCoordinationLeadershipVersion"
     testImplementation "org.testcontainers:testcontainers:$testContainersVersion"
 
-    testImplementation "io.eventuate.common.testcontainers:eventuate-common-testcontainers:$eventuateCommonTestcontainersVersion"
+    testImplementation project(":eventuate-common-zookeeper-testcontainers")
     testImplementation "io.eventuate.util:eventuate-util-test:$eventuateUtilVersion"
     testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
 }

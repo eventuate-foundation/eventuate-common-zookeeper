@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public class EventuateZookeeperContainer extends EventuateGenericContainer<EventuateZookeeperContainer> implements PropertyProvidingContainer {
 
     public EventuateZookeeperContainer() {
-        super(ContainerUtil.findImage("eventuateio/eventuate-zookeeper", "eventuate.common.version.properties"));
+        super(ContainerUtil.findImage("eventuateio/eventuate-zookeeper", "eventuate.common.zookeeper.version.properties"));
         withConfiguration();
     }
 
