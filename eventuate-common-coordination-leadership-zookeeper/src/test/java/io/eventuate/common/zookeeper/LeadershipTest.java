@@ -25,7 +25,7 @@ public class LeadershipTest extends AbstractLeadershipTest<ZkLeaderSelector> {
   public static class Config {
   }
 
-  public static EventuateZookeeperContainer zookeeper = new EventuateZookeeperContainer("eventuateio/eventuate-zookeeper:0.19.0.BUILD-SNAPSHOT")
+  public static EventuateZookeeperContainer zookeeper = new EventuateZookeeperContainer()
           .withReuse(true)
           .withNetworkAliases("zookeeper");
 
